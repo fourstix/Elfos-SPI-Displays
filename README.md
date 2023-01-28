@@ -5,6 +5,9 @@ Introduction
 ------------
 *TBD: Add introduction and general overview*
 
+**Note: This is an early release of a work in progress.** 
+More work needs to be done to add functions to create a common graphics library with routines that can be used by display-specific libraries.
+
 Platform  
 --------
 The programs were written to run displays from an [1802-Mini](https://github.com/dmadole/1802-Mini) by David Madole running with the [1802/Mini SPI adapter board](https://github.com/arhefner/1802-Mini-SPI-DMA) by Tony Hefner. These programs were assembled and linked with updated versions of the Asm-02 assembler and Link-02 linker by Mike Riley. The updated versions required to assemble and link this code are available at [arhefner/Asm-02](https://github.com/arhefner/Asm-02) and [arhefner/Link-02](https://github.com/arhefner/Link-02).
