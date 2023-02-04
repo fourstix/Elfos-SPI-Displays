@@ -52,11 +52,11 @@ Draws various lines on the display.
 Draws a simple line pattern on the display.
   
 ## reversed
-**Usage:** reversed
-Draws the same line pattern reversed (black on white) on the display.
+**Usage:** reversed  
+Draws a line pattern reversed (black on white) on the display.
      
 ## boxes
-**Usage:** reversed
+**Usage:** boxes  
 Draws rectangles in a pattern on the display.
 
 Repository Contents
