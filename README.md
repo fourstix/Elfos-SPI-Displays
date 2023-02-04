@@ -17,6 +17,10 @@ Supported Displays
 * SH1106 OLED display
 * *TBD: ssd1306 display*
 
+Graphics Library
+-----------------
+*TODO: Add description of Gfx_lib graphics library including API*
+
 Display Programs
 ----------------
 
@@ -64,7 +68,7 @@ Repository Contents
   * splash.asm - Show the Adafruit splash screen on the display.
   * show.asm - Read an show a bitmap graphics image file on the display. 
   * pixiecvt.asm - Conversion routines used to read and display a graphics image.
-  * sh1106build.bat - Windows batch file to assemble and link the sh1106 programs.
+  * sh1106build.bat - Windows batch file to assemble and link the sh1106 programs. Replace [Your_Path] with the correct path information for your system.
 * **/src/sh1106/include/**  -- Include files for the SH1106 display programs.  
   * sysconfig.inc - System configuration definitions for sh1106 programs.
   * sh1106.inc - SH1106 display value constants.
@@ -75,11 +79,12 @@ Repository Contents
   * kernel.inc - Kernel definitions from Elf/OS
 * **/src/gfx_lib/**  -- Source files for the graphics library programs.
   * gfx_lib.asm - Grapics library for SH1106 display.
-  * boxes.asm - Demo program to draw rectangles on the display screen
-  * splash.asm - Show the Adafruit splash screen on the display.
-  * show.asm - Read an show a bitmap graphics image file on the display. 
-  * pixiecvt.asm - Conversion routines used to read and display a graphics image.
-  * sh1106build.bat - Windows batch file to assemble and link the sh1106 programs.
+  * boxes.asm - Demo program to draw rectangles on the display screen.
+  * lines.asm - Demo program to draw lines in a pattern on the display screen.
+  * linetest.asm - Demo program to draw various lines on the display screen. 
+  * pixels.asm - Demo program to draw a simple pattern with pixels on the display screen.
+  * reversed.asm - Demo program to draw lines in a reversed pattern (black on white) on the display screen.
+  * buildgfx.bat - Windows batch file to assemble and link the gfx_lib graphics library and demo programs. Replace [Your_Path] with the correct path information for your system. 
     
 * **/src/gfx_lib/include/**  -- Include files for the graphics display programs. *TODO: merge these include files with the sh1106 include files*
   * sysconfig.inc - System configuration definitions for sh1106 programs.
