@@ -80,8 +80,8 @@ Repository Contents
   * show.asm - Read an show a bitmap graphics image file on the display. 
   * pixiecvt.asm - Conversion routines used to read and display a graphics image.
   * sh1106build.bat - Windows batch file to assemble and link the sh1106 programs.
-    *TODO: merge these include files with the sh1106 include files*
-* **/src/sh1106/include/**  -- Include files for the graphics display programs.  
+    
+* **/src/gfx_lib/include/**  -- Include files for the graphics display programs. *TODO: merge these include files with the sh1106 include files*
   * sysconfig.inc - System configuration definitions for sh1106 programs.
   * sh1106.inc - SH1106 display value constants.
   * sh1106_lib.inc - External definitions for routines in the sh1106_lib.
@@ -118,27 +118,27 @@ All libraries used in this code are copyright their respective authors.
 
 This code is based on code written by Tony Hefner and assembled with the Asm/02 assembler and Link/02 linker written by Mike Riley.
 
-Elf/OS 
+Elf/OS  
 Copyright (c) 2004-2023 by Mike Riley
 
-Asm/02 1802 Assembler
+Asm/02 1802 Assembler  
 Copyright (c) 2004-2023 by Mike Riley
 
-Link/02 1802 Linker
+Link/02 1802 Linker  
 Copyright (c) 2004-2023 by Mike Riley
 
-The Adafruit_SH1106 Library
-Copyright (c) 2012-2023 Adafruit Industries 
+The Adafruit_SH1106 Library  
+Copyright (c) 2012-2023 by Adafruit Industries   
 Written by Limor Fried/Ladyada for Adafruit Industries. 
 
-The Adafruit_GFX Library
-Copyright (c) 2012-2023 Adafruit Industries 
+The Adafruit_GFX Library  
+Copyright (c) 2012-2023 by Adafruit Industries   
 Written by Limor Fried/Ladyada for Adafruit Industries. 
 
-The 1802/Mini SPI Adapter Board 
+The 1802/Mini SPI Adapter Board   
 Copyright (c) 2022-2023 by Tony Hefner
 
-The 1802-Mini Microcomputer Hardware 
+The 1802-Mini Microcomputer Hardware   
 Copyright (c) 2020-2023 by David Madole
 
 Many thanks to the original authors for making their designs and code available as open source.
