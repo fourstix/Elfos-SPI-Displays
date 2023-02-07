@@ -16,3 +16,8 @@
 
 [Your_Path]\Asm02\asm02 -L -D1802MINIPLUS boxes.asm
 [Your_Path]\Link02\link02 -e -s boxes.prg sh1106_lib.prg gfx_lib.prg
+
+
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS blocks.asm
+[Your_Path]\Link02\link02 -e -s blocks.prg sh1106_lib.prg gfx_lib.prg
+

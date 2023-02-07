@@ -7,6 +7,8 @@
             extrn   clearLine
             extrn   drawRect
             extrn   clearRect
+            extrn   drawBlock
+            extrn   clearBlock
 
 
 ;---- debug routines

@@ -92,6 +92,32 @@ v001a
 :0030 d5
 +0004
 }
+{drawBlock
+/gfx_check_bounds 0001 00
+\gfx_check_bounds 0002
+:0000 d4 00 00 cb 00 0a f8 ff fe d5 99 73 89 73 98 73
+/gfx_clip_bounds 0017 00
+\gfx_clip_bounds 0018
+/gfx_write_block 001d 00
+\gfx_write_block 001e
+:0010 88 73 97 73 87 73 d4 00 00 f8 01 b9 d4 00 00 60
+:0020 72 a7 f0 b7 60 72 a8 f0 b8 60 72 a9 f0 b9 fc 00
+:0030 d5
++0004
+}
+{clearBlock
+/gfx_check_bounds 0001 00
+\gfx_check_bounds 0002
+:0000 d4 00 00 cb 00 0a f8 ff fe d5 99 73 89 73 98 73
+/gfx_clip_bounds 0017 00
+\gfx_clip_bounds 0018
+/gfx_write_block 001d 00
+\gfx_write_block 001e
+:0010 88 73 97 73 87 73 d4 00 00 f8 00 b9 d4 00 00 60
+:0020 72 a7 f0 b7 60 72 a8 f0 b8 60 72 a9 f0 b9 fc 00
+:0030 d5
++0004
+}
 {gfx_check_bounds
 :0000 97 ff 40 c3 00 11 87 ff 80 c3 00 11 fc 00 c0 00
 :0010 13 ff 00 d5
@@ -162,14 +188,23 @@ v001a
 :0000 87 52 88 a7 f0 a8 97 52 98 b7 f0 b8 d5
 }
 {gfx_write_h_line
-/gfx_write_pixel 0002 00
-\gfx_write_pixel 0003
-/gfx_write_pixel 000b 00
-\gfx_write_pixel 000c
-:0000 99 d4 00 00 89 c2 00 10 17 29 d4 00 00 c0 00 04
-:0010 d5
-+0006
-+000e
+:0000 9d 73 8d 73 9c 73 8c 73 f8 00 ad f8 00 bd 97 f6
+:0010 f6 f6 bd 9d f6 bd 8d 76 ad 87 52 8d f4 ad 9d 7c
+:0020 00 bd 8d 52 8f f4 ad 9d 52 9f 74 bd f8 01 bc 97
+:0030 fa 07 ac c2 00 3e 9c fe bc 2c 8c c0 00 33 99 ca
+:0040 00 48 9c 52 f8 ff f3 bc 9c 52 99 c2 00 58 fe c3
+:0050 00 5e 0d f1 5d c0 00 61 0d f2 5d c0 00 61 0d f3
+:0060 5d 89 c2 00 6a 1d 29 c0 00 48 60 72 ac f0 bc 60
+:0070 72 ad f0 bd d5
++0034
++003c
++0040
++004c
++0050
++0056
++005c
++0063
++0068
 }
 {gfx_write_v_line
 /gfx_write_pixel 0006 00
@@ -234,6 +269,15 @@ v001a
 /gfx_write_v_line 0040 00
 \gfx_write_v_line 0041
 :0040 00 00 60 72 aa f0 ba 60 72 ab f0 bb d5
+}
+{gfx_write_block
+:0000 9a 73 8a 73 9c 73 8c 73 87 aa 97 ba f8 00 ac f8
+/gfx_write_h_line 0018 00
+\gfx_write_h_line 0019
+:0010 00 bc 98 ac 1c 88 a9 d4 00 00 9a fc 01 ba 2c 88
+:0020 a9 8a a7 9a b7 8c ca 00 17 60 72 aa f0 ba 60 72
+:0030 ac f0 bc d5
++0027
 }
 {gfx_print_hex
 :0000 9d 73 8d 73 9f 73 8f 73 f8 2b af f8 00 bf d4 ff

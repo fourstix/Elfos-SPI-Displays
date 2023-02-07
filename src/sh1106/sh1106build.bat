@@ -9,3 +9,6 @@
 [Your_Pathname]\Asm02\asm02 -L -D1802MINIPLUS show.asm
 [Your_Pathname]\Asm02\asm02 -L pixiecvt.asm
 [Your_Pathname]\Link02\link02 -e show.prg pixiecvt.prg sh1106_lib.prg
+
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS spaceship.asm
+[Your_Path]\Link02\link02 -e -s spaceship.prg sh1106_lib.prg
