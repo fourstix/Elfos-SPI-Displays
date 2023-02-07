@@ -1,6 +1,6 @@
 ;-------------------------------------------------------------------------------
 ; sh1106_lib - a library for updating a SH1106 display via
-; the SPI Expansion Board for the 1802/Mini Computer.
+; the SPI Expansion Board for the 1802/Mini Computer. 
 ;
 ; Copyright 2023 by Gaston Williams
 ;
@@ -15,7 +15,8 @@
 ; SPI Expansion Board for the 1802/Mini Computer hardware
 ; Copyright 2022 by Tony Hefner 
 ;-------------------------------------------------------------------------------
-
+#include    include/bios.inc
+#nclude     include/kernel.inc
 #include    include/macros.inc
 #include    include/sysconfig.inc
 #include    include/sh1106.inc
@@ -61,13 +62,16 @@
 delay1:     dec     rc
             glo     rc
             bnz     delay1
+;-------------------------------------------------------------------------------            
+;   No need to reset for the SH1106
+;-------------------------------------------------------------------------------
 
-            out     SPI_CTL
-            db      RESET
+;            ; out     SPI_CTL
+;            ; db      RESET
 
-            mov     rc, 830             ; delay 10 ms
-delay2:     dec     rc
-            brnz    rc, delay2
+;            mov     rc, 830             ; delay 10 ms
+; delay2:     dec     rc
+;             brnz    rc, delay2
 
             out     SPI_CTL
             db      IDLE
@@ -330,3 +334,4 @@ d_loop:     lda     rf              ; get byte from buffer
             rtn
 
             endp
+            
