@@ -118,6 +118,32 @@ v001a
 :0030 d5
 +0004
 }
+{drawBitmap
+/gfx_check_bounds 0001 00
+\gfx_check_bounds 0002
+:0000 d4 00 00 cb 00 0a f8 ff fe d5 9d 73 8d 73 99 73
+/gfx_clip_bounds 001b 00
+\gfx_clip_bounds 001c
+:0010 89 73 98 73 88 73 97 73 87 73 d4 00 00 f8 01 b9
+/gfx_write_bitmap 0021 00
+\gfx_write_bitmap 0022
+:0020 d4 00 00 60 72 a7 f0 b7 60 72 a8 f0 b8 60 72 a9
+:0030 f0 b9 60 72 ad f0 bd fc 00 d5
++0004
+}
+{clearBitmap
+/gfx_check_bounds 0001 00
+\gfx_check_bounds 0002
+:0000 d4 00 00 cb 00 0a f8 ff fe d5 9d 73 8d 73 99 73
+/gfx_clip_bounds 001b 00
+\gfx_clip_bounds 001c
+:0010 89 73 98 73 88 73 97 73 87 73 d4 00 00 f8 00 b9
+/gfx_write_bitmap 0021 00
+\gfx_write_bitmap 0022
+:0020 d4 00 00 60 72 a7 f0 b7 60 72 a8 f0 b8 60 72 a9
+:0030 f0 b9 60 72 ad f0 bd fc 00 d5
++0004
+}
 {gfx_check_bounds
 :0000 97 ff 40 c3 00 11 87 ff 80 c3 00 11 fc 00 c0 00
 :0010 13 ff 00 d5
@@ -278,6 +304,24 @@ v001a
 :0020 a9 8a a7 9a b7 8c ca 00 17 60 72 aa f0 ba 60 72
 :0030 ac f0 bc d5
 +0027
+}
+{gfx_write_bitmap
+:0000 9a 73 8a 73 9b 73 8b 73 9c 73 8c 73 9d 73 8d 73
+:0010 87 bc 97 aa 98 ab f8 00 ac ba 88 fc 07 f6 f6 f6
+:0020 bb 8c fa 07 c2 00 2d 9a fe ba c0 00 44 9d 73 8d
+:0030 73 8c f6 f6 f6 52 8d f4 ad 9d 7c 00 bd 0d ba 60
+:0040 72 ad f0 bd 9a fa 80 c2 00 5d 98 73 88 73 8a b7
+/gfx_write_pixel 0056 00
+\gfx_write_pixel 0057
+:0050 9c 52 8c f4 a7 d4 00 00 60 72 a8 f0 b8 1c 8c 52
+:0060 88 f7 ca 00 21 1a 9b 52 8d f4 ad 9d 7c 00 bd f8
+:0070 00 ac ba 2b 8b ca 00 21 60 72 ad f0 bd 60 72 ac
+:0080 f0 bc 60 72 ab f0 bb 60 72 aa f0 ba d5
++0025
++002b
++0048
++0063
++0076
 }
 {gfx_print_hex
 :0000 9d 73 8d 73 9f 73 8f 73 f8 2b af f8 00 bf d4 ff
