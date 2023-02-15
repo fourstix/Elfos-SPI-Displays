@@ -3,7 +3,7 @@ Elf/OS programs for an 1802/Mini system with the 1802/Mini SPI adapter board con
 
 Introduction
 ------------
-*TBD: Add introduction and general overview*
+This repository contains 1802 Assembler code for an SH1106 display driver and a graphics library.  The display driver and graphics library are based on Adafruit's [Adafruit_GFX-Library](https://github.com/adafruit/Adafruit-GFX-Library) written by Ladyada Limor Fried and on the [Fast SH1106 Library](https://forum.arduino.cc/t/a-fast-sh1106-library-128x64-oled/236309) written by Arthur Liberman. 
 
 **Note: This is an early release of a work in progress.** 
 More work needs to be done to add functions to create a common graphics library with routines that can be used by display-specific libraries.
@@ -17,9 +17,29 @@ Supported Displays
 * SH1106 OLED display
 * *TBD: ssd1306 display*
 
-Graphics Library
------------------
-*TODO: Add description of Gfx_lib graphics library including API*
+Graphics Library API
+---------------------
+
+## API List
+
+* clearBuffer - clear all bits in the display buffer.
+* fillBuffer - set all bits in the display buffer.
+* drawPixel - set a pixel at a particular x0,y0 co-ordinates.
+* clearPixel - clear a pixel at a particular x0,y0 co-ordinates.
+* drawLine - set pixels to form a line from x0,y0 to x1,y1
+* clearLine - clear pixels to form a line from x0,y0 to x1,y1 
+* drawRect  - set pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* clearRect - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* drawBlock - set pixels to form a filled rectangle with its upper left corner at x0,y0 with width w and height h.
+* clearBlock - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* drawBitmap - set pixels to draw a bitmap of width w and height h with its upper left corner at x0,y0.
+* clearBitmap - clear pixels to erase a bitmap of width w and height h with its upper left corner at x0,y0.
+* *TBD: drawChar - draw a character at x0,y0*
+* *TBD: drawStr - draw a null-terminated string at x0,y0*
+* *TBD: drawText - draw text on the display at the current cursor location.*
+
+
+*TODO: Add table for API Parameters r7, r8, r9*
 
 Display Programs
 ----------------
@@ -59,6 +79,18 @@ Draws a line pattern reversed (black on white) on the display.
 **Usage:** boxes  
 Draws rectangles in a pattern on the display.
 
+## blocks
+**Usage:** blocks  
+Draws filled rectangles in a pattern on the display.
+
+## bitmaps
+**Usage:** bitmaps  
+Draws Adafruit bitmaps on the display.
+
+## snowflakes
+**Usage:** snowflakes  
+Draws falling snowflake bitmaps on the display.
+
 Repository Contents
 -------------------
 * **/src/**  -- Common source files for assembling programs for SPI displays
@@ -79,11 +111,14 @@ Repository Contents
   * kernel.inc - Kernel definitions from Elf/OS
 * **/src/gfx_lib/**  -- Source files for the graphics library programs.
   * gfx_lib.asm - Grapics library for SH1106 display.
+  * bitmaps.asm - Demo program to draw Adafruit flower bitamps on the display screen.
+  * blocks.asm - Demo program to draw filled rectangles on the display screen. 
   * boxes.asm - Demo program to draw rectangles on the display screen.
   * lines.asm - Demo program to draw lines in a pattern on the display screen.
   * linetest.asm - Demo program to draw various lines on the display screen. 
   * pixels.asm - Demo program to draw a simple pattern with pixels on the display screen.
   * reversed.asm - Demo program to draw lines in a reversed pattern (black on white) on the display screen.
+  * snowflakes.asm - Demo program to draw falling snowflake bitmaps on the display screen.
   * buildgfx.bat - Windows batch file to assemble and link the gfx_lib graphics library and demo programs. Replace [Your_Path] with the correct path information for your system. 
     
 * **/src/gfx_lib/include/**  -- Include files for the graphics display programs. *TODO: merge these include files with the sh1106 include files*
@@ -139,6 +174,9 @@ Written by Limor Fried/Ladyada for Adafruit Industries.
 The Adafruit_GFX Library  
 Copyright (c) 2012-2023 by Adafruit Industries   
 Written by Limor Fried/Ladyada for Adafruit Industries. 
+
+The Fast SH1106 Arduino Library  
+Copyright (c) 2013 by Arthur Liberman (ALCPU) 
 
 The 1802/Mini SPI Adapter Board   
 Copyright (c) 2022-2023 by Tony Hefner
