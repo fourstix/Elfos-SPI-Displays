@@ -5,7 +5,7 @@ Introduction
 ------------
 This repository contains 1802 Assembler code for an SH1106 display driver and a graphics library.  The display driver and graphics library are based on Adafruit's [Adafruit_GFX-Library](https://github.com/adafruit/Adafruit-GFX-Library) written by Ladyada Limor Fried and on the [Fast SH1106 Library](https://forum.arduino.cc/t/a-fast-sh1106-library-128x64-oled/236309) written by Arthur Liberman. 
 
-These programs use a display specific library named sh1106_oled.lib  Many of these demo programs also use a common graphics library gfx_oled.lib with routines that can be used by display-specific libraries.
+These programs use a display specific library sh1106_oled.lib.  The graphics demo programs also use a common graphics library gfx_oled.lib.
 
 Platform  
 --------
@@ -112,7 +112,7 @@ Repository Contents
   * splash.asm - Show the Adafruit splash screen on the display.
   * show.asm - Read an show a bitmap graphics image file on the display. 
   * pixiecvt.asm - Conversion routines used to read and display a graphics image.
-  * bitmaps.asm - Demo program to draw Adafruit flower bitamps on the display screen.
+  * bitmaps.asm - Demo program to draw Adafruit flower bitmaps on the display screen.
   * blocks.asm - Demo program to draw filled rectangles on the display screen. 
   * boxes.asm - Demo program to draw rectangles on the display screen.
   * lines.asm - Demo program to draw lines in a pattern on the display screen.
@@ -134,14 +134,16 @@ Repository Contents
   * bios.inc - Bios definitions from Elf/OS
   * kernel.inc - Kernel definitions from Elf/OS
 * **/src/sh1106/**  -- Source files for the SH1106 display library.
-* build.bat - Windows batch file to assemble and create the sh1106_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
-* clean.bat - Windows batch file to delete the sh1106_oled library and its associated files.    
+  * *.asm - Assembly source files for library functions.
+  * build.bat - Windows batch file to assemble and create the sh1106_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
+  * clean.bat - Windows batch file to delete the sh1106_oled library and its associated files.    
 * **/src/gfx/**  -- Source files for the graphics library.
+  * *.asm - Assembly source files for library functions.
   * build.bat - Windows batch file to assemble and create the gfx_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
   * clean.bat - Windows batch file to delete the gfx_oled library and its associated files.    
 * **/bin/**  -- Binary files for SH1106 display programs.
 * **/lbr/**  -- Elf/OS library file with SH1106 OLED display programs.
-  * sh1106_oled.lbr - Elf/OS library file for display programs.  Extract these files with the Elf/OS command *lbr e sh1106_oled*
+  * sh1106_oled.lbr - Extract the program files with the Elf/OS command *lbr e sh1106_oled*
 * **/docs/**  -- Documentation for various displays
 * **/docs/sh1106/**  - Documentation files for the SH1106 display.
   * 1.3inch-SH1106-OLED.pdf - 1.3" SH1106 OLED Users Guide.
