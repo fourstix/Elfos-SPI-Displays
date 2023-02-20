@@ -5,8 +5,7 @@ Introduction
 ------------
 This repository contains 1802 Assembler code for an SH1106 display driver and a graphics library.  The display driver and graphics library are based on Adafruit's [Adafruit_GFX-Library](https://github.com/adafruit/Adafruit-GFX-Library) written by Ladyada Limor Fried and on the [Fast SH1106 Library](https://forum.arduino.cc/t/a-fast-sh1106-library-128x64-oled/236309) written by Arthur Liberman. 
 
-**Note: This is an early release of a work in progress.** 
-More work needs to be done to add functions to create a common graphics library with routines that can be used by display-specific libraries.
+These programs use a display specific library named sh1106_oled.lib  Many of these demo programs also use a common graphics library gfx_oled.lib with routines that can be used by display-specific libraries.
 
 Platform  
 --------
@@ -22,22 +21,20 @@ Graphics Library API
 
 ## API List
 
-* clearBuffer - clear all bits in the display buffer.
-* fillBuffer - set all bits in the display buffer.
-* drawPixel - set a pixel at a particular x0,y0 co-ordinates.
-* clearPixel - clear a pixel at a particular x0,y0 co-ordinates.
-* drawLine - set pixels to form a line from x0,y0 to x1,y1
-* clearLine - clear pixels to form a line from x0,y0 to x1,y1 
-* drawRect  - set pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
-* clearRect - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
-* drawBlock - set pixels to form a filled rectangle with its upper left corner at x0,y0 with width w and height h.
-* clearBlock - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
-* drawBitmap - set pixels to draw a bitmap of width w and height h with its upper left corner at x0,y0.
-* clearBitmap - clear pixels to erase a bitmap of width w and height h with its upper left corner at x0,y0.
-* *TBD: drawChar - draw a character at x0,y0*
-* *TBD: drawStr - draw a null-terminated string at x0,y0*
-* *TBD: drawText - draw text on the display at the current cursor location.*
-
+* clear_buffer - clear all bits in the display buffer.
+* fill_buffer - set all bits in the display buffer.
+* draw_pixel - set a pixel at a particular x0,y0 co-ordinates.
+* clear_pixel - clear a pixel at a particular x0,y0 co-ordinates.
+* draw_line - set pixels to form a line from x0,y0 to x1,y1
+* clear_line - clear pixels to form a line from x0,y0 to x1,y1 
+* draw_rect  - set pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* clear_rect - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* draw_block - set pixels to form a filled rectangle with its upper left corner at x0,y0 with width w and height h.
+* clear_block - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* draw_bitmap - set pixels to draw a bitmap of width w and height h with its upper left corner at x0,y0.
+* clear_bitmap - clear pixels to erase a bitmap of width w and height h with its upper left corner at x0,y0.
+* draw_char - draw a character at x0,y0
+* draw_string - draw a null-terminated string at x0,y0
 
 *TODO: Add table for API Parameters r7, r8, r9*
 
@@ -51,6 +48,10 @@ Clear the display.
 ## splash
 **Usage:** splash   
 Show the Adafruit splash screen on the display.
+
+## spaceship
+**Usage:** spaceship   
+Show the classic Elf spaceship program graphic on the display.
 
 ## show
 **Usage:** show *filename*   
@@ -91,26 +92,26 @@ Draws Adafruit bitmaps on the display.
 **Usage:** snowflakes  
 Draws falling snowflake bitmaps on the display.
 
+## charset
+**Usage:** charset  
+Draws the printable ASCII character set on the display.
+
+## helloworld
+**Usage:** helloworld  
+Draws the classic text greeting on the display.
+
+## textbg
+**Usage:** textbg  
+Draws text strings on the display, using the transparent and opaque background options.
+
+
 Repository Contents
 -------------------
-* **/src/**  -- Common source files for assembling programs for SPI displays
-* **/src/sh1106/**  -- Source files for the SH1106 display programs.
-  * sh1106_lib.asm - Library for SH1106 display routines.
+* **/src/**  -- Source files for demo programs for SPI displays
   * clear.asm - Clear the display screen
   * splash.asm - Show the Adafruit splash screen on the display.
   * show.asm - Read an show a bitmap graphics image file on the display. 
   * pixiecvt.asm - Conversion routines used to read and display a graphics image.
-  * sh1106build.bat - Windows batch file to assemble and link the sh1106 programs. Replace [Your_Path] with the correct path information for your system.
-* **/src/sh1106/include/**  -- Include files for the SH1106 display programs.  
-  * sysconfig.inc - System configuration definitions for sh1106 programs.
-  * sh1106.inc - SH1106 display value constants.
-  * sh1106_lib.inc - External definitions for routines in the sh1106_lib.
-  * ops.inc - Opcode definitions for Asm/02.
-  * macros.inc - More opcode definitions for Asm/02. *TODO: merge into ops.inc*
-  * bios.inc - Bios definitions from Elf/OS
-  * kernel.inc - Kernel definitions from Elf/OS
-* **/src/gfx_lib/**  -- Source files for the graphics library programs.
-  * gfx_lib.asm - Grapics library for SH1106 display.
   * bitmaps.asm - Demo program to draw Adafruit flower bitamps on the display screen.
   * blocks.asm - Demo program to draw filled rectangles on the display screen. 
   * boxes.asm - Demo program to draw rectangles on the display screen.
@@ -119,19 +120,28 @@ Repository Contents
   * pixels.asm - Demo program to draw a simple pattern with pixels on the display screen.
   * reversed.asm - Demo program to draw lines in a reversed pattern (black on white) on the display screen.
   * snowflakes.asm - Demo program to draw falling snowflake bitmaps on the display screen.
-  * buildgfx.bat - Windows batch file to assemble and link the gfx_lib graphics library and demo programs. Replace [Your_Path] with the correct path information for your system. 
-    
-* **/src/gfx_lib/include/**  -- Include files for the graphics display programs. *TODO: merge these include files with the sh1106 include files*
+  * charset.asm - Demo program to draw the printable ASCII character set on the display screen.
+  * helloworld.asm - Demo program to draw the classic greeting on the display screen.
+  * textbg.asm - Demo program to draw text with transparent and opaque background options on the display screen.
+  * build.bat - Windows batch file to assemble and link the sh1106 programs. Replace [Your_Path] with the correct path information for your system.
+  * clean.bat - Windows batch file to delete assembled binaries and their associated files.
+* **/src/include/**  -- Include files for the SH1106 display programs and the libraries.  
   * sysconfig.inc - System configuration definitions for sh1106 programs.
   * sh1106.inc - SH1106 display value constants.
   * sh1106_lib.inc - External definitions for routines in the sh1106_lib.
+  * gfx_lib.inc - External definitions for the Graphics Library
   * ops.inc - Opcode definitions for Asm/02.
-  * macros.inc - More opcode definitions for Asm/02. *TODO: merge into ops.inc*
   * bios.inc - Bios definitions from Elf/OS
   * kernel.inc - Kernel definitions from Elf/OS
-  * gfx_lib.inc - External definitions for the Graphics Library
-* **/bin/sh1106/**  -- Binary files for SH1106 display programs.
-* **/bin/gfx_lib/**  -- Binary files for graphics library demo programs.
+* **/src/sh1106/**  -- Source files for the SH1106 display library.
+* build.bat - Windows batch file to assemble and create the sh1106_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
+* clean.bat - Windows batch file to delete the sh1106_oled library and its associated files.    
+* **/src/gfx/**  -- Source files for the graphics library.
+  * build.bat - Windows batch file to assemble and create the gfx_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
+  * clean.bat - Windows batch file to delete the gfx_oled library and its associated files.    
+* **/bin/**  -- Binary files for SH1106 display programs.
+* **/lbr/**  -- Elf/OS library file with SH1106 OLED display programs.
+  * sh1106_oled.lbr - Elf/OS library file for display programs.  Extract these files with the Elf/OS command *lbr e sh1106_oled*
 * **/docs/**  -- Documentation for various displays
 * **/docs/sh1106/**  - Documentation files for the SH1106 display.
   * 1.3inch-SH1106-OLED.pdf - 1.3" SH1106 OLED Users Guide.
