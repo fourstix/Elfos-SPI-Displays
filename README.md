@@ -16,27 +16,42 @@ Supported Displays
 * SH1106 OLED display
 * *TBD: ssd1306 display*
 
+Display Library API
+---------------------
+
+## Public API List
+
+* init_oled  - initialize the OLED display 
+* clear_oled - clear the OLED dispay
+* show_oled  - show the contents of a memory buffer on the display
+* *TBD: position_oled - position the display's memory cursor at x,y (not tested yet)*
+
+*TODO: Add table for API Parameters rf, r7*
+
+
 Graphics Library API
 ---------------------
 
-## API List
+## Public API List
 
 * clear_buffer - clear all bits in the display buffer.
-* fill_buffer - set all bits in the display buffer.
-* draw_pixel - set a pixel at a particular x0,y0 co-ordinates.
-* clear_pixel - clear a pixel at a particular x0,y0 co-ordinates.
-* draw_line - set pixels to form a line from x0,y0 to x1,y1
-* clear_line - clear pixels to form a line from x0,y0 to x1,y1 
-* draw_rect  - set pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
-* clear_rect - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
-* draw_block - set pixels to form a filled rectangle with its upper left corner at x0,y0 with width w and height h.
-* clear_block - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
-* draw_bitmap - set pixels to draw a bitmap of width w and height h with its upper left corner at x0,y0.
+* fill_buffer  - set all bits in the display buffer.
+* draw_pixel   - set a pixel at a particular x0,y0 co-ordinates.
+* clear_pixel  - clear a pixel at a particular x0,y0 co-ordinates.
+* draw_line    - set pixels to form a line from x0,y0 to x1,y1
+* clear_line   - clear pixels to form a line from x0,y0 to x1,y1 
+* draw_rect    - set pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* clear_rect   - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* draw_block   - set pixels to form a filled rectangle with its upper left corner at x0,y0 with width w and height h.
+* clear_block  - clear pixels to form a rectangle with its upper left corner at x0,y0 with width w and height h.
+* draw_bitmap  - set pixels to draw a bitmap of width w and height h with its upper left corner at x0,y0.
 * clear_bitmap - clear pixels to erase a bitmap of width w and height h with its upper left corner at x0,y0.
-* draw_char - draw a character at x0,y0
-* draw_string - draw a null-terminated string at x0,y0
+* draw_char    - draw a character at x0,y0
+* draw_string  - draw a null-terminated string at x0,y0
 
 *TODO: Add table for API Parameters r7, r8, r9*
+
+*TODO: Add private API list*
 
 Display Programs
 ----------------
@@ -128,16 +143,19 @@ Repository Contents
 * **/src/include/**  -- Include files for the SH1106 display programs and the libraries.  
   * sysconfig.inc - System configuration definitions for sh1106 programs.
   * sh1106.inc - SH1106 display value constants.
-  * sh1106_lib.inc - External definitions for routines in the sh1106_lib.
-  * gfx_lib.inc - External definitions for the Graphics Library
+  * sh1106_lib.inc - External definitions for routines in the SH1106 display library sh1106_oled.lib.
+  * gfx_lib.inc - External definitions for the Graphics OLED Library gfx_oled.lib.
   * ops.inc - Opcode definitions for Asm/02.
   * bios.inc - Bios definitions from Elf/OS
   * kernel.inc - Kernel definitions from Elf/OS
-* **/src/sh1106/**  -- Source files for the SH1106 display library.
+* **/src/lib/**  -- Library files for the SH1106 display programs and OLED graphics demos.
+  * gfx_oled.lib - Assembled Graphics OLED library. The source files for library functions are in the */src/gfx/* directory.
+  * sh1106_oled.lib - Assembled SH1106 OLED display library. The source files for the library functions are in the */src/sh1106/* directory.
+* **/src/sh1106/**  -- Source files for the SH1106 OLED display library.
   * *.asm - Assembly source files for library functions.
   * build.bat - Windows batch file to assemble and create the sh1106_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
   * clean.bat - Windows batch file to delete the sh1106_oled library and its associated files.    
-* **/src/gfx/**  -- Source files for the graphics library.
+* **/src/gfx/**  -- Source files for the Graphics OLED library.
   * *.asm - Assembly source files for library functions.
   * build.bat - Windows batch file to assemble and create the gfx_oled graphics library. Replace [Your_Path] with the correct path information for your system. 
   * clean.bat - Windows batch file to delete the gfx_oled library and its associated files.    
