@@ -61,25 +61,34 @@ Graphics Library API
 * draw_string  - draw a null-terminated string at x0,y0
 
 
-*Note: rf = pointer to display buffer for all API*
+##Notes:
+* rf = pointer to display buffer for all API*
+* y = row, 0 to 63
+* x = column, 0 to 127
 
 <table>
-<tr><th rowspan="2">API Name</th><th colspan="2">R7</th><th colspan="2">R8</th><th colspan="2">R9</th><th rowspan="2" colspan="2">Notes</th></tr>
-<tr><th>R7.1</th><th>R7.0</th><th>R8.1</th><th>R8.0</th><th>R9.1</th><th>R9.0</th></tr>
-<tr><td>clear_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
-<tr><td>fill_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
-<tr><td>draw_pixel</td><td>y (row, 0 to 63)</td><td>x (column, 0 to 127)</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
-<tr><td>clear_pixel</td><td>y (row, 0 to 63)</td><td>x (column, 0 to 127)</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
-<tr><td>draw_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
-<tr><td>clear_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
-<tr><td>draw_rect</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
-<tr><td>clear_rect</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
-<tr><td>draw_block</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
-<tr><td>clear_block</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
-<tr><td>draw_bitmap</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
-<tr><td>clear_bitmap</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
-<tr><td>draw_char</td><td>origin y</td><td> origin x</td><td colspan="2">-</td><td>background</td><td>character</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. Checks ASCII character value, draws DEL (127) if non-printable. Return: r7 points to next character position (text wraps).</td></tr>
-<tr><td>draw_string</td><td>origin y</td><td> origin x</td><td colspan="2">Pointer to null terminated ASCII string</td><td>background</td><td>-</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. Checks ASCII character value, draws DEL (127) if non-printable. Return: r8 and r9 are consumed.</td></tr>
+<tr><th rowspan="2">API Name</th><th colspan="2">R7</th><th colspan="2">R8</th><th rowspan="2" colspan="2">Notes</th></tr>
+<tr><th>R7.1</th><th>R7.0</th><th>R8.1</th><th>R8.0</th></tr>
+<tr><td>clear_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
+<tr><td>fill_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
+<tr><td>draw_pixel</td><td>y</td><td>x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>clear_pixel</td><td>y</td><td>x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>draw_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>clear_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>draw_rect</td><td>origin y</td><td> origin x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>clear_rect</td><td>origin y</td><td> origin x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>draw_block</td><td>origin y</td><td> origin x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>clear_block</td><td>origin y</td><td> origin x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>draw_bitmap</td><td>origin y</td><td> origin x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>clear_bitmap</td><td>origin y</td><td> origin x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><th rowspan="3">API Name</th><th colspan="2">R7</th><th colspan="2">R8</th><th colspan="2">R9</th></tr>
+<tr></th><th>R7.1</th><th>R7.0</th><th colspan="2"> </th><th>R9.1</th><th>R9.0</th></tr>
+
+<tr><th colspan="6">Notes</th></tr>
+<tr><td rowspan="2">draw_char</td><td>origin y</td><td>origin x</td><th colspan="2">-</th><td>background</td><td>character</td></tr>
+<tr><td colspan="6">Checks origin x,y values, returns error (DF = 1) if out of bounds.<br>Checks ASCII character value, draws DEL (127) if non-printable.<br> Return: r7 points to next character position (text wraps).</td></tr>
+<tr><td rowspan="2">draw_string</td><td>origin y</td><td> origin x</td><td colspan="2">r8 - Pointer to null terminated ASCII string.</td><td>background</td><td>-</td></tr>
+<tr><td colspan="6">Checks origin x,y values, returns error (DF = 1) if out of bounds. <br>Checks ASCII character value, draws DEL (127) if non-printable.<br> Return: registers r8 and r9 are consumed.</td></tr>
 </table>
 
 Display Programs
