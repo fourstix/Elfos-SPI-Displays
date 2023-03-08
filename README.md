@@ -61,16 +61,22 @@ Graphics Library API
 * draw_string  - draw a null-terminated string at x0,y0
 
 
-##Notes:
-* rf = pointer to display buffer for all API*
-* y = row, 0 to 63
-* x = column, 0 to 127
+## API Notes:
+* rf = pointer to display buffer for all API
+* r7.1 = origin y (row value, 0 to 63)
+* r7.0 = origin x (column value, 0 to 127)
+* r8.1 = endpoint y, or height
+* r8.0 = endpoint x, or width
+* r8 = pointer to null-terminated string
+* r9.1 = background for characters, GFX_ BG_TRANSPARENT OR GFX_OPAQUE
+* r9.0 = ASCII character to draw
+
 
 <table>
 <tr><th rowspan="2">API Name</th><th colspan="2">R7</th><th colspan="2">R8</th><th rowspan="2" colspan="2">Notes</th></tr>
 <tr><th>R7.1</th><th>R7.0</th><th>R8.1</th><th>R8.0</th></tr>
-<tr><td>clear_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
-<tr><td>fill_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
+<tr><td>clear_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2">rf = pointer to display buffer for all API</td></tr>
+<tr><td>fill_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2">rf = pointer to display buffer for all API</td></tr>
 <tr><td>draw_pixel</td><td>y</td><td>x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
 <tr><td>clear_pixel</td><td>y</td><td>x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
 <tr><td>draw_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
