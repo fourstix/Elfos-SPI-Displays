@@ -24,10 +24,21 @@ Display Library API
 * init_oled  - initialize the OLED display 
 * clear_oled - clear the OLED dispay
 * show_oled  - show the contents of a memory buffer on the display
-* *TBD: position_oled - position the display's memory cursor at x,y (not tested yet)*
+* position_oled - position the display's memory cursor at the byte corresponding to x,y 
+* send_oled - send a single byte directly to the display memory
+* write_oled - write a buffer of a number of bytes directly to the display memory
 
-*TODO: Add table for API Parameters rf, r7*
-
+<table>
+<tr><th>Name</th><th>Description</th><th colspan="2">Parameters</th></tr>
+<tr><td>init_oled</td><td>Initialize the display</td><td colspan="2">(None)</td></tr>
+<tr><td>clear_oled</td><td>Clear the display</td><td colspan="2">(None)</td></tr>
+<tr><td>show_oled</td><td>Update the display</td><td colspan="2">rf - Pointer to 1K byte buffer</td></tr>
+<tr><td rowspan="2">position_oled</td><td rowspan="2">Position the display Memory Cursor</td><td colspan="2">r7.1 - y position (0 to 63)</td></tr>
+<tr><td>r7.0 - x position (0 to 127)</td></tr>
+<tr><td>send_oled</td><td>Send a single byte to the display memory</td><td colspan="2">D - byte to send</td></tr>
+<tr><td rowspan="2">write_oled</td><td rowspan="2">Write a number of bytes directly to the display memory</td><td colspan="2">rf - pointer to buffer with bytes.</td></tr>
+<tr><td>r8 - count of bytes to write</td></tr>            
+</table>
 
 Graphics Library API
 ---------------------
@@ -49,9 +60,27 @@ Graphics Library API
 * draw_char    - draw a character at x0,y0
 * draw_string  - draw a null-terminated string at x0,y0
 
-*TODO: Add table for API Parameters r7, r8, r9*
 
-*TODO: Add private API list*
+*Note: rf = pointer to display buffer for all API*
+
+<table>
+<tr><th rowspan="2">API Name</th><th colspan="2">R7</th><th colspan="2">R8</th><th colspan="2">R9</th><th rowspan="2" colspan="2">Notes</th></tr>
+<tr><th>R7.1</th><th>R7.0</th><th>R8.1</th><th>R8.0</th><th>R9.1</th><th>R9.0</th></tr>
+<tr><td>clear_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
+<tr><td>fill_buffer</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2"> - </td></tr>
+<tr><td>draw_pixel</td><td>y (row, 0 to 63)</td><td>x (column, 0 to 127)</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>clear_pixel</td><td>y (row, 0 to 63)</td><td>x (column, 0 to 127)</td><td colspan="2"> - </td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>draw_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>clear_line</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td colspan="2"> - </td><td colspan="2">Checks x,y values, returns error (DF = 1) if out of bounds</td></tr>
+<tr><td>draw_rect</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>clear_rect</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>draw_block</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>clear_block</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>draw_bitmap</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>clear_bitmap</td><td>origin y</td><td> origin x</td><td>endpoint y</td><td>endpoint x</td><td>height</td><td>width</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. The w and h values may be clipped to edge of display.</td></tr>
+<tr><td>draw_char</td><td>origin y</td><td> origin x</td><td colspan="2">-</td><td>background</td><td>character</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. Checks ASCII character value, draws DEL (127) if non-printable. Return: r7 points to next character position (text wraps).</td></tr>
+<tr><td>draw_string</td><td>origin y</td><td> origin x</td><td colspan="2">Pointer to null terminated ASCII string</td><td>background</td><td>-</td><td colspan="2">Checks origin x,y values, returns error (DF = 1) if out of bounds. Checks ASCII character value, draws DEL (127) if non-printable. Return: r8 and r9 are consumed.</td></tr>
+</table>
 
 Display Programs
 ----------------
@@ -119,6 +148,10 @@ Draws the classic text greeting on the display.
 **Usage:** textbg  
 Draws text strings on the display, using the transparent and opaque background options.
 
+## direct
+**Usage:** direct  
+Draw patterns by directly writing to bytes to the display.
+
 
 Repository Contents
 -------------------
@@ -138,6 +171,7 @@ Repository Contents
   * charset.asm - Demo program to draw the printable ASCII character set on the display screen.
   * helloworld.asm - Demo program to draw the classic greeting on the display screen.
   * textbg.asm - Demo program to draw text with transparent and opaque background options on the display screen.
+  * direct.asm - Demo program to directly write pattern bytes to the display.
   * build.bat - Windows batch file to assemble and link the sh1106 programs. Replace [Your_Path] with the correct path information for your system.
   * clean.bat - Windows batch file to delete assembled binaries and their associated files.
 * **/src/include/**  -- Include files for the SH1106 display programs and the libraries.  

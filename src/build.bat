@@ -1,13 +1,13 @@
-[Your_Path]\Asm02\asm02 -L -DGASTON clear.asm
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS clear.asm
 [Your_Path]\Link02\link02 -e clear.prg -l lib\sh1106_oled.lib
 
-[Your_Path]\Asm02\asm02 -L -DGASTON splash.asm
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS splash.asm
 [Your_Path]\Link02\link02 -e splash.prg -l lib\sh1106_oled.lib
 
-[Your_Path]\Asm02\asm02 -L -DGASTON spaceship.asm
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS spaceship.asm
 [Your_Path]\Link02\link02 -e spaceship.prg -l lib\sh1106_oled.lib
 
-[Your_Path]\Asm02\asm02 -L -DGASTON show.asm
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS show.asm
 [Your_Path]\Asm02\asm02 -L pixiecvt.asm
 [Your_Path]\Link02\link02 -e show.prg pixiecvt.prg -l lib\sh1106_oled.lib
 
@@ -43,3 +43,7 @@
 
 [Your_Path]\Asm02\asm02 -L -D1802MINIPLUS textbg.asm
 [Your_Path]\Link02\link02 -e -s textbg.prg -l lib\sh1106_oled.lib -l lib\gfx_oled.lib
+
+[Your_Path]\Asm02\asm02 -L -D1802MINIPLUS direct.asm
+[Your_Path]\Link02\link02 -e direct.prg -l lib\sh1106_oled.lib
+
