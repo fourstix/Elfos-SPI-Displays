@@ -64,6 +64,10 @@
             sex     r2        ; point x back to stack
             
             ghi     r7        ; get row address (y)
+            shr               ; shift left (page = int y/8)
+            shr                        
+            shr               ; D now has page value for row    
+
             adi     $B0       ; add $B0 for row address command (B0 + y)
             str     r2        ; save in M(X)
   
