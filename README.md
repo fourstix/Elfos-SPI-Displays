@@ -94,7 +94,7 @@ Graphics Library API
 <tr><td rowspan="2">draw_char</td><td>origin y</td><td>origin x</td><th colspan="2">-</th><td>background</td><td>character</td></tr>
 <tr><td colspan="6">Checks origin x,y values, returns error (DF = 1) if out of bounds.<br>Checks ASCII character value, draws DEL (127) if non-printable.<br> Return: r7 points to next character position (text wraps).</td></tr>
 <tr><td rowspan="2">draw_string</td><td>origin y</td><td> origin x</td><td colspan="2">r8 - Pointer to null terminated ASCII string.</td><td>background</td><td>-</td></tr>
-<tr><td colspan="6">Checks origin x,y values, returns error (DF = 1) if out of bounds. <br>Checks ASCII character value, draws DEL (127) if non-printable.<br> Return: registers r8 and r9 are consumed.</td></tr>
+<tr><td colspan="6">Checks origin x,y values, returns error (DF = 1) if out of bounds. <br>Checks ASCII character value, draws DEL (127) if non-printable.<br> Return: register r7 points to next character position (text wraps) and registers r8 and r9 are consumed.</td></tr>
 </table>
 
 Display Programs
