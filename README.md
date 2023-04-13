@@ -170,7 +170,7 @@ The following wiring is used to connect the Elf/OS SPI Adapter board to the SH11
 
 ST7920 GLCD Display Pinout
 --------------------------
-The following wiring is used to connect the Elf/OS SPI Adapter board to the ST7920 GLCD display.
+The following wiring is used to connect the Elf/OS SPI Adapter board to the ST7920 GLCD display. Power is supplied to the display through an external 5v power source that is not shown in the picture.
 
 <table>
 <tr ><td colspan="4"><img src="https://github.com/fourstix/Elfos-SPI-Displays/blob/b_update/docs/st7920/ST7920_Wiring.jpg"></td></tr>
@@ -188,8 +188,8 @@ The following wiring is used to connect the Elf/OS SPI Adapter board to the ST79
 </table>
 
 ##Notes:
-  1. The ST7920 GLCD display with a backlight can draw a lot of power, so an external 5v power source was used for the display shown. Be sure to connect the power source ground with the signal ground, but do not connect the 5v lines together.
-  2. The contrast voltage is already configured on some displays and pin 3 is not connected like the display shown in the picture. On other displays, connect a 10K ohm potentiometer between +5v and GND and connect Vo to the wiper (middle) connection.  Adjust the potentiometer for the Vo voltage on pin 3 that gives the best display contrast.  Some displays also have a potentiometer on the back that can be adjust Vo.
+  1. The ST7920 GLCD display with a backlight can draw a lot of power, so an external 5v power source was used for the display shown. Be sure to connect the power source ground with the signal ground, but do not connect the +5v lines together.
+  2. The contrast voltage is already configured on some displays and pin 3 is not connected like the display shown in the picture. On other displays, connect a 10K ohm potentiometer between +5v and GND and connect Vo to the wiper (middle) connection.  Adjust the potentiometer for the Vo voltage on pin 3 that gives the best display contrast.  Some displays also have a potentiometer on the back that can be used to adjust Vo.
   
 Repository Contents
 -------------------
