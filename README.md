@@ -43,8 +43,6 @@ Draws a simple line pattern on the display.
 OLED Display Library API
 ------------------------
 
-## OLED Public API List
-
 * init_oled  - initialize the OLED display 
 * clear_oled - clear the OLED dispay
 * show_oled  - show the contents of a memory buffer on the display
