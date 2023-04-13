@@ -3,7 +3,7 @@ Elf/OS programs for an 1802/Mini system with the 1802/Mini SPI adapter board con
 
 Introduction
 ------------
-This repository contains 1802 Assembler code for OLED and GLCD display demo programs. 
+This repository contains 1802 Assembler code for OLED and GLCD display demo programs.  This repository has code for the SH1106 OLED display and the ST7920 GLCD display as a proof of concept. There are Elf/OS drivers with demo programs for the SH1106 and other types of OLED displays available at [Elfos-SPI-OLED-Drivers](https://github.com/fourstix/Elfos-SPI-OLED-Drivers).
 
 The ST7920 GLCD display programs were based on code from the [ST7920_GFX library](https://github.com/BornaBiro/ST7920_GFX_Library) written by Borna Bira and Adafruit's [Adafruit_GFX-Library](https://github.com/adafruit/Adafruit-GFX-Library) written by Ladyada Limor Fried.
 
