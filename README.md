@@ -135,7 +135,7 @@ Draw patterns by directly writing to bytes to the display.
 
 SPI Card Pinout
 ---------------
-The following pinout is used to connect the Elf/OS SPI Adapter board to the OLED displays.
+The following pinout is used to connect the Elf/OS SPI Adapter board to the OLED and GLCD displays.
 
 <table>
 <tr ><td colspan="4"><img src="https://github.com/fourstix/Elfos-SPI-Displays/blob/b_update/docs/spi/1802-Mini-SPI-Connector.jpg"></td></tr>
